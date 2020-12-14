@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: local
 
 ---
 spring:
@@ -8,10 +8,12 @@ spring:
     name: library-events-producer
   config:
     activate:
-      on-profile: dev
+      on-profile: local
 
   kafka:
     producer:
       bootstrap-servers: localhost:9092, localhost:9093, localhost:9094
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      bootstrap.servers: localhost:9092, localhost:9093, localhost:9094
